@@ -1,0 +1,67 @@
+[
+  {
+    "q": 1,
+    "question": "почему сорвался запуск проекта «Кристалл» в мае?",
+    "answer": "ОТВЕТ: Сорвался из-за подрядчика: Вадим, делавший вёрстку главной к 12.05, пропал с 6 мая (попал в больницу), вышел на связь 15-го и сдал только 18.05; Ирина попросила у Инги неделю, запуск сдвинулся на неделю. Правки Инги причиной не были — они пришли 18-го, уже на готовое.\nОСНОВАНИЕ: [dataset-round-2/docs/dogovor-kristall.pdf] «запуск… 12.05.2026» · [dataset-round-2/messages/podryadchiki.json] «лежал в больнице с 6-го, телефон сел», сдал 18.05 в 23:50 · [dataset-round-2/notes/2026-05-11 не могу дозвониться.md] «вадим не отвечает пятый день» · [dataset-round-2/messages/klienty.json] «Инга, нужна неделя. Подрядчик выпал по здоровью» · [dataset-round-2/calendar/irina.ics] «Созвон Инга / запуск … CANCELLED»; «новый срок» 19.05 CONFIRMED · [dataset-round-2/transcripts/2026-05-21 созвон Инга.txt] «они уже на готовое легли, не они задержали»",
+    "sources": [
+      "dataset-round-2/docs/dogovor-kristall.pdf",
+      "dataset-round-2/messages/podryadchiki.json",
+      "dataset-round-2/notes/2026-05-11 не могу дозвониться.md",
+      "dataset-round-2/messages/klienty.json",
+      "dataset-round-2/calendar/irina.ics",
+      "dataset-round-2/transcripts/2026-05-21 созвон Инга.txt"
+    ]
+  },
+  {
+    "q": 2,
+    "question": "сколько Ирина фактически заработала на клиенте «Веха» и выгоден ли он?",
+    "answer": "ОТВЕТ: По трём счетам «Вехи» получено 2135 (61 ч × 35) — против устно обещанных ~4500 и 120–130 ч по договору. Клиент невыгоден: ~30 ч отданы бесплатно (онбординг 2 дня, доп. экран, правки цвета, 2 незаписанных дня) → фактическая ставка ~24/ч.\nОСНОВАНИЕ: [dataset-round-2/docs/schet-veha-01.pdf] 27 ч × 35 = 945 · [dataset-round-2/docs/schet-veha-02.pdf] 20 ч = 700 · [dataset-round-2/docs/schet-veha-03.pdf] 14 ч = 490 · [dataset-round-2/notes/учёт времени.md] «в счёт пошло 61 час. по факту больше» · [dataset-round-2/notes/2026-03-02 бриф веха.md] «примерно 4500, ставка 35 в час» · [dataset-round-2/notes/2026-06-03 онбординг вехы.md] «вне сметы… ушло два дня» · [dataset-round-2/tasks/todo.txt] «не выставила, сделала бесплатно» · [dataset-round-2/calendar/irina.ics] 8 созвонов «Вера / Веха», последний 08.07 — после счёта № 03 от 30.06",
+    "sources": [
+      "dataset-round-2/docs/schet-veha-01.pdf",
+      "dataset-round-2/docs/schet-veha-02.pdf",
+      "dataset-round-2/docs/schet-veha-03.pdf",
+      "dataset-round-2/notes/учёт времени.md",
+      "dataset-round-2/notes/2026-03-02 бриф веха.md",
+      "dataset-round-2/notes/2026-06-03 онбординг вехы.md",
+      "dataset-round-2/tasks/todo.txt",
+      "dataset-round-2/calendar/irina.ics"
+    ]
+  },
+  {
+    "q": 3,
+    "question": "что Ирина пообещала и не выполнила?",
+    "answer": "ОТВЕТ: Макеты Вере (обещала к четвергу 22.06 — к 15.07 не сданы), акты и счета бухгалтеру Тимуру (обещала отдать до конца июня — 28.07 всё ещё нет), запуск «Кристалла» 12.05 по договору (сдвинут на неделю) и сайт студии, который откладывала трижды.\nОСНОВАНИЕ: [transcripts/2026-06-22 созвон Вера.txt] «макеты финальные пришлю... к четвергу» · [transcripts/2026-07-03 голосовое расшифровка.txt] «обещала к четвергу и не сделала» · [messages/klienty.json] «Напомню про макеты )» · [messages/buhgalter.json] «Отдам до конца месяца» → «уже месяц. Без них не закрою квартал» · [docs/dogovor-kristall.pdf] «запуск 12.05.2026» · [calendar/irina.ics] «Инга / запуск … CANCELLED»; «Сайт студии: собрать кейсы … CANCELLED (26.02, 24.03, 06.05)» · [messages/lichnoe.json] «опять перенесла сайт. третий раз»",
+    "sources": [
+      "dataset-round-2/transcripts/2026-06-22 созвон Вера.txt",
+      "dataset-round-2/transcripts/2026-07-03 голосовое расшифровка.txt",
+      "dataset-round-2/messages/klienty.json",
+      "dataset-round-2/messages/buhgalter.json",
+      "dataset-round-2/docs/dogovor-kristall.pdf",
+      "dataset-round-2/calendar/irina.ics",
+      "dataset-round-2/messages/lichnoe.json"
+    ]
+  },
+  {
+    "q": 4,
+    "question": "почему задача «переделать сайт студии» висит с февраля?",
+    "answer": "ОТВЕТ: Она упирается в кейсы: по собственному плану сайт «начинается с кейсов», а собрать их Ирина не может — часть работ под NDA, остальное ей стыдно показывать («как будто я не выросла за три года»). Отсюда пять месяцев переносов: каждый поставленный блок отменялся, приоритет в бэклоге сполз с высокого до низкого.\nОСНОВАНИЕ: [dataset-round-2/tasks/backlog.csv] «Сайт студии — собрать кейсы,высокий,2026-02-19,2026-02-26,открыта» → «низкий,…,2026-05-06,открыта» · [dataset-round-2/calendar/irina.ics] «Сайт студии: собрать кейсы … STATUS:CANCELLED (26.02, 24.03, 06.05)», 23.06 — TENTATIVE · [dataset-round-2/notes/Untitled 3.md] «начать с кейсов, они главное» · [dataset-round-2/notes/Untitled 7.md] «не могу собрать кейсы. то что есть — либо под NDA, либо мне за это стыдно» · [dataset-round-2/messages/lichnoe.json] «опять перенесла сайт. третий раз»",
+    "sources": [
+      "dataset-round-2/tasks/backlog.csv",
+      "dataset-round-2/calendar/irina.ics",
+      "dataset-round-2/notes/Untitled 3.md",
+      "dataset-round-2/notes/Untitled 7.md",
+      "dataset-round-2/messages/lichnoe.json"
+    ]
+  },
+  {
+    "q": 5,
+    "question": "кто из подрядчиков надёжен по фактам?",
+    "answer": "ОТВЕТ: По фактам надёжны Рита Ковач и Paul Kim — оба сдают в срок или на день раньше каждый раз. Вадим Ефимов, которого Ирина в заметке ставит первым выбором, срывает почти все дедлайны.\nОСНОВАНИЕ: [dataset-round-2/messages/podryadchiki.json] Рита: 8 иллюстраций 19.03 (за день до срока), ещё 4 — 24.04 при сроке 25.04, и 14.06 при сроке 15.06, «как всегда сдаю в срок, заметь»; Paul Kim: сдал 4 мая при дедлайне 5 мая; Вадим: каталог +неделя, Кристалл к 12.05 сдан 18.05 в 23:50, Веха к 09.06 — 16.06 · [dataset-round-2/calendar/irina.ics] приёмки с Ритой 15.04 и 09.06 — CONFIRMED, а синки с Вадимом 07.05 и 11.05 и созвоны по Кристаллу 07.05/08.05/12.05 — CANCELLED · [dataset-round-2/notes/2026-05-11 не могу дозвониться.md] «вадим не отвечает пятый день» · [dataset-round-2/notes/подрядчики.md] «Вадим — золото… иногда пропадает», «Рита — сложная» — субъективный рейтинг обратен фактам",
+    "sources": [
+      "dataset-round-2/messages/podryadchiki.json",
+      "dataset-round-2/calendar/irina.ics",
+      "dataset-round-2/notes/2026-05-11 не могу дозвониться.md",
+      "dataset-round-2/notes/подрядчики.md"
+    ]
+  }
+]
