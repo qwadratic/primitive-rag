@@ -1,8 +1,8 @@
-<h1 align="center">🧩 Слои</h1>
+<h1 align="center">🧩 Primitive RAG</h1>
 <p align="center"><b>A CLI that reads a messy 6-month export of someone's life — notes, chats, invoices, calendar, call transcripts, screenshots — and actually answers questions about it, with receipts.</b></p>
 
 <p align="center">
-  <img src="demo.gif" alt="Слои CLI demo: dataset overview, then two live queries answered with sources" width="720">
+  <img src="demo.gif" alt="Primitive RAG CLI demo: dataset overview, then two live queries answered with sources" width="720">
 </p>
 
 <p align="center">
@@ -19,9 +19,11 @@ every loosely-related snippet and calls that an answer. Neither is useful when t
 answer needs three sources cross-referenced — an invoice, a time-tracking note, and a
 Slack-style DM thread that all disagree slightly with each other.
 
-**Слои** ("Layers") is a small CLI built to do the actual work: read everything once,
-turn it into structured per-file "cards," then answer questions by reasoning across the
-whole card index — and always show which files the answer is actually standing on.
+**Primitive RAG** is a small CLI built to do the actual work: read everything once, turn
+it into structured per-file "cards," then answer questions by reasoning across the whole
+card index — and always show which files the answer is actually standing on. "Primitive"
+because there's no vector DB, no embeddings, no framework — just `claude -p` calls and
+plain files, and it still out-performs what those usually buy you at this corpus size.
 
 ## How it works
 
