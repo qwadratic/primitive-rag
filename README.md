@@ -93,6 +93,38 @@ the same 5 questions afterward (also in `qa/`).
 The full chronology — every decision, every pivot, every self-correction — is in
 [`RUNBOOK.md`](RUNBOOK.md).
 
+## Session details
+
+Full raw transcript and the numbers behind it: [`session/`](session/) (transcript +
+[`session/token-usage.json`](session/token-usage.json)).
+
+- **Rounds participated in:** 2 (5 questions, unseen second dataset) and 3 (1 question,
+  original dataset, after the round-2 fix) — round 1 was already closed when this session
+  joined; retroactively simulated on a separate branch, see below.
+- **Assistant turns:** 417 in the main orchestrating conversation, plus 962 more spread
+  across 223 separate `claude -p` subprocess calls the CLI itself spawned (87+92 file
+  ingests, ~20 self-eval queries, the graded rounds, and reruns) — 1,379 total.
+- **Tokens:** ~834K output tokens (main session) + ~527K (subprocess calls) generated;
+  ~127M tokens served from prompt cache across everything (re-sending the full card index
+  on every `query` call is exactly what prompt caching is for). Full breakdown in
+  [`session/token-usage.json`](session/token-usage.json).
+- **Estimated cost: ~$192**, using published list pricing and Anthropic's standard cache
+  multipliers (not a billed figure — the raw logs don't include one). The estimate breaks
+  down as ~$25 for the main session (Sonnet 5) and **~$167 for the 223 `claude -p`
+  subprocess calls** — because those default to **Opus 5**, not this session's Sonnet 5.
+  That mismatch was never intentional; it's the single most impactful thing a rebuild
+  would fix (`claude -p --model claude-sonnet-5 ...` on every ingest/query call would cut
+  the dominant cost line by roughly 5×, since Opus is priced well above Sonnet).
+- **Most impactful prompt:** *"lets use 'claude -p' as a primitive... wire it to DAG"* —
+  the message that discarded the original PGLite/pgvector plan mid-build and replaced it
+  with the architecture this whole repo is built on. Everything downstream (the
+  `claude-p/` pattern library, the zero-dependency CLI, the ability to reindex a second
+  dataset with an env var instead of a rewrite) traces back to that one redirect.
+- **Round-1 retrospective:** the organizer later shared round 1's reference answers after
+  the fact (we joined at round 2). A separate agent replayed round 1's 5 questions on the
+  `round1-simulation` branch, using the tool exactly as it existed *before* the round-2
+  feedback fixes — a fair before/after comparison, not hindsight-tuned.
+
 ## Repo layout
 
 ```
@@ -105,6 +137,7 @@ docs/               reasoning log, question sets, design plan
 samples/            hand-picked excerpts from early data exploration
 selfeval/           pre-submission self-eval answers (20 questions)
 qa/                 questions + answers (rounds 2, 3) + qa/feedback.json (grader feedback + rubric)
+session/            raw session transcript + token/cost breakdown
 demo.mp4, demo.gif, demo.cast   the recording above (asciinema → agg → ffmpeg)
 RUNBOOK.md          how the whole event went, chronologically
 ```

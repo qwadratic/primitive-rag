@@ -1,0 +1,35 @@
+{
+  "note": "Aggregated from raw Claude Code session JSONL transcripts. main_session = the orchestrating conversation (this repo's author). subprocess_claude_p = the 223 separate `claude -p --allowedTools Read` invocations spawned by bin/cli.mjs (87 round-1 ingest + 92 round-2 ingest + ~20 selfeval queries + round2/3 query reruns + demo test runs). cost_usd_estimate uses published per-model list pricing and Anthropic's standard cache multipliers (write 1h = 2x base input, write 5m = 1.25x, read = 0.1x base input) since the raw usage field does not include a direct dollar cost. Sonnet 5 priced at its intro rate ($2/$10 per MTok, in effect through 2026-08-31, which covers this session's date); Opus 5 has no intro rate.",
+  "main_session": {
+    "model": "claude-sonnet-5",
+    "assistant_turns": 417,
+    "input_tokens": 834,
+    "output_tokens": 306779,
+    "thinking_tokens_included_in_output": 142203,
+    "cache_write_1h_tokens": 844230,
+    "cache_write_5m_tokens": 0,
+    "cache_read_tokens": 91930130,
+    "cost_usd_estimate": 24.83
+  },
+  "subprocess_claude_p": {
+    "model": "claude-opus-5",
+    "note": "claude -p defaults to Opus 5, not the parent session's Sonnet 5 -- unintentional and the dominant cost driver.",
+    "invocation_count": 223,
+    "assistant_turns": 962,
+    "input_tokens": 1922,
+    "output_tokens": 526898,
+    "thinking_tokens_included_in_output": 325066,
+    "cache_write_1h_tokens": 13676780,
+    "cache_write_5m_tokens": 0,
+    "cache_read_tokens": 34881015,
+    "cost_usd_estimate": 167.39
+  },
+  "grand_total": {
+    "assistant_turns": 1379,
+    "input_tokens": 2756,
+    "output_tokens": 833677,
+    "cache_write_1h_tokens": 14521010,
+    "cache_read_tokens": 126811145,
+    "cost_usd_estimate": 192.22
+  }
+}
