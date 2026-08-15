@@ -126,7 +126,7 @@ Ingested (92 files, 0 failures), answered all 5 questions, submitted all 5
 
 ## Round 2 feedback — where it actually fell short
 
-Retrieved grader feedback ([`qa/round2/feedback.json`](qa/round2/feedback.json)) once the
+Retrieved grader feedback ([`qa/feedback.json`](qa/feedback.json)) once the
 round closed: reference answers plus a `match` object per question
 (`need`/`hit`/`extra`/`missed` sources). Read aloud to the owner in full, unfiltered.
 Answer *content* was consistently close to the reference — same facts, same conclusions,
@@ -149,7 +149,7 @@ than glossed over.
    source card is actually in `SOURCES` before finalizing.
 
 Verified against the known round-2 gaps by re-running the same 5 questions
-(`qa/round2/` — the round itself was closed, so this was verification only, not
+(`qa/` — the round itself was closed, so this was verification only, not
 resubmitted; confirmed via a direct API probe that returned `"вопрос вне диапазона"`).
 Calendar-citation gaps were fixed; some corroborating-source gaps remained, which pointed
 at a second issue (see below).
@@ -170,6 +170,12 @@ corroborating source found — and resubmitted the marginally more complete vers
 Confirmed via the API that round 2 remains genuinely locked (no path to retroactively
 apply the fix there); the round-2 answers on record are exactly what was submitted before
 the pattern was improved.
+
+**Round 3 closed and was graded numerically** (round 2 wasn't — it only exposed
+per-source `match` stats). Result: **score 2/2**, the organizer's top tier, described in
+their own rubric as naming all four unbilled-work pieces with both the hour count and the
+money figure, backed by the invoices. Full reference answer and rubric in
+[`qa/feedback.json`](qa/feedback.json).
 
 ## Demo
 

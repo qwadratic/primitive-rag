@@ -78,15 +78,15 @@ questions, real scoring, real gaps found:
 
 | Round | Questions | What happened |
 |---|---|---|
-| 2 | 5, against a second unseen export | Scored against a reference answer; average source-recall ~60% (`match.hit/match.need`). Full transcript + grader feedback: [`qa/round2/`](qa/round2/) |
-| 3 | 1, back on the original export | Answered after patching the prompt based on round-2 feedback | [`qa/round3/`](qa/round3/) |
+| 2 | 5, against a second unseen export | Graded against a reference answer per-source (`match.hit/need`), no numeric score exposed; average source-recall ~60%. Full transcript + grader feedback: [`qa/`](qa/) |
+| 3 | 1, back on the original export, after the round-2 fix | **Scored 2/2** (top tier) on the organizer's own rubric — closed and confirmed final | [`qa/`](qa/) |
 
 The round-2 feedback surfaced a real, fixable gap: the tool used facts from the calendar
 card but didn't always cite the calendar file itself as a source. That got fixed in
 [`claude-p/answer-question/pattern.md`](claude-p/answer-question/pattern.md) — a
 self-audit step ("for every fact in your answer, is its source in your SOURCES list?")
 and an explicit instruction to always check the calendar card. Verified by re-running
-the same 5 questions afterward (also in `qa/round2/`).
+the same 5 questions afterward (also in `qa/`).
 
 The full chronology — every decision, every pivot, every self-correction — is in
 [`RUNBOOK.md`](RUNBOOK.md).
@@ -102,7 +102,7 @@ index/, index-round-2/   extracted cards per dataset
 docs/               reasoning log, question sets, design plan
 samples/            hand-picked excerpts from early data exploration
 selfeval/           pre-submission self-eval answers (20 questions)
-qa/                 questions + answers + grader feedback for rounds 2 and 3
+qa/                 questions + answers (rounds 2, 3) + qa/feedback.json (grader feedback + rubric)
 demo.mp4, demo.gif, demo.cast   the recording above (asciinema → agg → ffmpeg)
 RUNBOOK.md          how the whole event went, chronologically
 ```
