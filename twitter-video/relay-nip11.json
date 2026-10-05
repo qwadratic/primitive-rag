@@ -1,0 +1,35 @@
+{
+    "name": "hive",
+    "description": "A hive mind communication platform on the Pears stack",
+    "pubkey": "7e618b72a77b4573670ec3529a3e33ca9d133c99dfb75767cebf60c15e204865",
+    "contact": "",
+    "supported_nips": [
+        1,
+        9,
+        10,
+        11,
+        16,
+        17,
+        23,
+        25,
+        29,
+        33,
+        34,
+        42,
+        43,
+        45,
+        50,
+        56,
+        98
+    ],
+    "software": "https://github.com/hive/hive",
+    "version": "0.1.0",
+    "icon": null,
+    "limitation": {
+        "max_message_length": 65536,
+        "max_subscriptions": 1024,
+        "max_limit": 500,
+        "auth_required": true,
+        "payment_required": false
+    }
+}

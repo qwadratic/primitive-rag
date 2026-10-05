@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hive on Pears</title>
+<style>
+  :root { --bg:#0d1117; --fg:#e6edf3; --dim:#7d8590; --green:#3fb950; --pear:#b5d334; --honey:#f2b632; --card:#161b22; --line:#30363d; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:1280px; height:720px; overflow:hidden; background:var(--bg); color:var(--fg);
+    font-family: "Inter", "Helvetica Neue", Arial, sans-serif; }
+  .scene { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    opacity:0; transition:opacity .35s ease; padding:56px; }
+  .scene.on { opacity:1; }
+  h1 { font-size:76px; font-weight:800; letter-spacing:-1.5px; }
+  h1 .pear { color:var(--pear); }
+  .sub { margin-top:20px; font-size:30px; color:var(--dim); text-align:center; line-height:1.4; }
+  .sub b { color:var(--honey); font-weight:600; }
+  .stack { display:grid; grid-template-columns:1fr 80px 1fr; align-items:center; gap:24px; width:100%; max-width:1000px; }
+  .col { background:var(--card); border:1px solid var(--line); border-radius:16px; padding:32px; }
+  .col h2 { font-size:22px; color:var(--dim); text-transform:uppercase; letter-spacing:2px; margin-bottom:20px; }
+  .col div { font-size:40px; font-weight:700; line-height:1.5; }
+  .col.old div { color:#6e7681; text-decoration:line-through; }
+  .col.new div { color:var(--pear); }
+  .arrow { font-size:60px; color:var(--honey); text-align:center; }
+  .term { width:100%; height:100%; background:#010409; border:1px solid var(--line); border-radius:14px; overflow:hidden;
+    display:flex; flex-direction:column; }
+  .bar { height:40px; background:var(--card); border-bottom:1px solid var(--line); display:flex; align-items:center; gap:8px; padding:0 16px; }
+  .bar i { width:13px; height:13px; border-radius:50%; display:block; }
+  .bar span { margin-left:14px; color:var(--dim); font:15px ui-monospace, Menlo, monospace; }
+  .body { flex:1; padding:20px 26px; font:21px/1.5 ui-monospace, "DejaVu Sans Mono", Menlo, monospace; white-space:pre; overflow:hidden;
+    display:flex; flex-direction:column; justify-content:flex-end; }
+  .body .l { opacity:0; }
+  .body .l.on { opacity:1; }
+  .p { color:var(--green); } .ok { color:var(--green); } .h { font-weight:700; color:var(--fg); } .d { color:var(--dim); } .k { color:var(--honey); }
+  .tag { position:absolute; top:74px; right:84px; background:var(--pear); color:#111; font:700 18px Inter, Arial, sans-serif; padding:6px 14px; border-radius:99px; }
+  .links { margin-top:36px; font:30px ui-monospace, Menlo, monospace; text-align:center; line-height:1.8; }
+  .links .k { color:var(--honey); }
+</style>
+</head>
+<body>
+
+<section class="scene" id="s1">
+  <h1>I'm building on <span class="pear">Pears</span> 🍐</h1>
+  <p class="sub"><b>Hive</b> — a Nostr relay where people and AI agents<br>sign everything with the same kind of key</p>
+</section>
+
+<section class="scene" id="s2">
+  <div class="stack">
+    <div class="col old"><h2>Buzz (Rust)</h2><div>Postgres</div><div>Redis</div><div>S3</div></div>
+    <div class="arrow">→</div>
+    <div class="col new"><h2>Hive (JS)</h2><div>Bare</div><div>SQLite</div><div>HyperDHT</div></div>
+  </div>
+  <p class="sub" style="margin-top:32px">same kinds, same NIP-29, same CLI contract</p>
+</section>
+
+<section class="scene" id="s3">
+  <div class="term">
+    <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>live relay</span></div>
+    <div class="body" id="t3"></div>
+  </div>
+  <div class="tag">LIVE</div>
+</section>
+
+<section class="scene" id="s4">
+  <div class="term">
+    <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span>hive — bare scripts/demo.js</span></div>
+    <div class="body" id="t4"></div>
+  </div>
+</section>
+
+<section class="scene" id="s5">
+  <h1>Hive <span class="pear">on Pears</span></h1>
+  <div class="links">
+    <div><span class="k">code</span>  github.com/qwadratic/hive</div>
+    <div><span class="k">relay</span> wss://beecomb-relay.exe.xyz</div>
+  </div>
+</section>
+
+<script>
+// Real output captured from the live relay (relay-nip11.json) and the hive demo run (hive-demo-run.txt).
+const T3 = [
+  ['p', "$ curl -H 'Accept: application/nostr+json' https://beecomb-relay.exe.xyz"],
+  ['', '{'],
+  ['', '  "name": <k>"hive"</k>,'],
+  ['', '  "description": <k>"A hive mind communication platform on the Pears stack"</k>,'],
+  ['', '  "pubkey": "7e618b72a77b4573670ec3529a3e33ca9d133c99dfb75767cebf60c15e204865",'],
+  ['', '  "supported_nips": [1,9,10,11,16,17,23,25,29,33,34,42,43,45,50,56,98],'],
+  ['', '  "limitation": { "auth_required": <k>true</k>, "max_subscriptions": 1024 }'],
+  ['', '}'],
+];
+const T4 = [
+  ['p', '$ bare scripts/demo.js'],
+  ['h', '1. The relay is up and describes itself over NIP-11'],
+  ['ok','   ✓ reachable peer-to-peer: hyper://ada9d1f7a231…d9c5'],
+  ['h', '2. Alice opens a channel with the CLI'],
+  ['ok','   ✓ channel created: 73d95300-739d-43a7-96db-0481a0cb30f6'],
+  ['h', '3. An agent is defined by a persona and joins the channel'],
+  ['ok','   ✓ agent published its capabilities: text-generation, embeddings'],
+  ['h', '4. Alice mentions the agent; the agent answers'],
+  ['ok','   ✓ the reply is a signed event'],
+  ['ok','   ✓ it is threaded under the question'],
+  ['h', '5. A workflow with an approval gate runs, suspends, and resumes'],
+  ['ok','   ✓ the run is waiting for approval'],
+  ['ok','   ✓ the gated step ran after approval'],
+  ['ok','   ✓ and the run completed'],
+];
+function fill(id, rows) {
+  const el = document.getElementById(id);
+  for (const [cls, txt] of rows) {
+    const d = document.createElement('div');
+    d.className = 'l ' + cls;
+    d.innerHTML = txt.replace(/</g,'&lt;').replace(/&lt;k>/g,'<span class="k">').replace(/&lt;\/k>/g,'</span>') || ' ';
+    el.appendChild(d);
+  }
+  return [...el.children];
+}
+const L3 = fill('t3', T3), L4 = fill('t4', T4);
+
+// Scene boundaries as fractions of total duration; total comes from ?d=<seconds>.
+const total = (parseFloat(new URLSearchParams(location.search).get('d')) || 40) * 1000;
+const cuts = [0, .12, .28, .45, .88, 1];
+const scenes = ['s1','s2','s3','s4','s5'].map(id => document.getElementById(id));
+
+function reveal(lines, from, to, t) {
+  const n = lines.length, span = (to - from) * 0.8;
+  lines.forEach((l, i) => l.classList.toggle('on', t >= from + span * i / n));
+}
+
+const start = performance.now();
+function tick() {
+  const t = (performance.now() - start) / total;
+  scenes.forEach((s, i) => s.classList.toggle('on', t >= cuts[i] && t < cuts[i+1]));
+  reveal(L3, cuts[2], cuts[3], t);
+  reveal(L4, cuts[3], cuts[4], t);
+  if (t < 1) requestAnimationFrame(tick); else document.title = 'done';
+}
+requestAnimationFrame(tick);
+</script>
+</body>
+</html>

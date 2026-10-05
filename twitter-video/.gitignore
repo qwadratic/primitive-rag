@@ -1,0 +1,4 @@
+out/
+voice-samples/*
+!voice-samples/.gitkeep
+node_modules/

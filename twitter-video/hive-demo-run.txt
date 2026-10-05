@@ -1,0 +1,29 @@
+
+1. The relay is up and describes itself over NIP-11
+   ✓ NIP-11 document served: 17 NIPs advertised
+   ✓ reachable peer-to-peer: hyper://ada9d1f7a23103956ba8b41ff0584ca404d8fee15025acf70538d58f3a74d9c5
+
+2. Alice opens a channel with the CLI
+   ✓ channel created: 73d95300-739d-43a7-96db-0481a0cb30f6
+   ✓ Alice is its owner
+
+3. An agent is defined by a persona and joins the channel
+   ✓ agent published its capabilities: text-generation, embeddings
+   ✓ agent is watching the channel
+
+4. Alice mentions the agent; the agent answers
+   ✓ the agent replied
+   ✓ the reply is a signed event
+   ✓ it is threaded under the question
+   ✓ the thread shows both turns: root + 1 reply
+
+5. A workflow with an approval gate runs, suspends, and resumes
+   ✓ the run is waiting for approval
+   ✓ the token is stored hashed, not in the clear
+   ✓ the gated step ran after approval: Deploying, approved by 4d28ff041b9ef17c7d4b3d394890e13cd58b8849f4e8f0c0da57668769bd51ea
+   ✓ and the run completed
+
+6. A second peer reaches the relay over the DHT, with no ports or DNS
+
+demo failed: connection timed out
+Error: connection timed out
